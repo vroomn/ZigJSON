@@ -11,11 +11,6 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
-    //const testExe = b.addExecutable(.{ .name = "zigJSONTest", .root_source_file = b.path("demo.zig"), .target = target, .optimize = optimize });
-    //testExe.linkLibrary(libZigJSON);
-    //b.installArtifact(testExe);
-
-    //const runTestExe = b.addRunArtifact(testExe);
     const testExe = b.addTest(.{ .name = "e", .root_source_file = b.path("demo.zig"), .target = target });
     testExe.linkLibrary(libZigJSON);
     b.installArtifact(testExe);
